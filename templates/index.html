@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Storage Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f9fc;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #0078d4;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-weight: 600;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .blob-content {
+            background-color: #f0f4f8;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #0078d4;
+            word-wrap: break-word;
+            margin-top: 20px;
+        }
+        .label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Azure Storage Demo</h1>
+    </header>
+    
+    <div class="container">
+        <div class="label">Blob Content:</div>
+        <div class="blob-content">{{ blob_content }}</div>
+    </div>
+    
+    <footer>
+        <p>Azure Blob Storage Flask Demo Application</p>
+    </footer>
+</body>
+</html> 
