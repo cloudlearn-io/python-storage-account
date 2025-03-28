@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from azure.storage.blob import BlobServiceClient
 import os
+import traceback
 
 app = Flask(__name__)
 
@@ -10,7 +11,10 @@ def index():
         # Retrieve the storage connection string from the environment
         conn_str = os.environ.get('STORAGE_CONNECTION_STRING')
         if not conn_str:
-            return "Error: STORAGE_CONNECTION_STRING environment variable is not set."
+            return render_template('error.html', 
+                error_title="Configuration Error",
+                error_message="STORAGE_CONNECTION_STRING environment variable is not set.",
+                error_details="Please set the STORAGE_CONNECTION_STRING environment variable in your app configuration.")
 
         # Create a BlobServiceClient object
         blob_service_client = BlobServiceClient.from_connection_string(conn_str)
@@ -34,7 +38,11 @@ def index():
 
         return render_template('index.html', blob_content=blob_content)
     except Exception as e:
-        return f'Error: {e}'
+        error_traceback = traceback.format_exc()
+        return render_template('error.html', 
+            error_title="Application Error",
+            error_message=str(e),
+            error_details=error_traceback)
 
 if __name__ == '__main__':
     app.run()   
